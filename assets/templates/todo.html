@@ -1,0 +1,23 @@
+<div class="container">
+    <h1>Todo List</h1>
+    <div class="create-todo-container">
+      <input type="text" ng-model="newTodo.value">
+      <button type="button" ng-click="addTodo(newTodo)">Add Todo</button>
+    </div>
+
+    <div class="todos-container mt-lg">
+      <div class="todo-container"ng-repeat="todo in todos">
+        <p ng-show="!editTodo"><strong>todo:</strong> {{todo.value}}</p>
+        <input ng-show="editTodo" ng-model="todo.value">
+        <div class="todo-actions">
+          <div class="update-actions" ng-show="editTodo">
+            <button ng-click="updateTodo(todo)">update</button>
+          </div>
+          <div ng-show="!editTodo">
+            <i class="fa fa-pencil fa-lrg" ng-click="editTodo=!editTodo"></i>
+            <i class="fa fa-trash fa-lrg" ng-click="removeTodo(todo)"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
