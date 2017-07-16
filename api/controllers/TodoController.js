@@ -8,29 +8,30 @@
 module.exports = {
 	getTodos: function(req, res) {
 		Todo.find().exec(function(err, todos) {
-			console.log(22222, err, todos);
       if (err) throw err;
       res.json(todos);
     });
 	},
 
 	addTodo: function(req, res) {
-		Todo.create(req.body).exec(function(err, todo) {
-			console.log(2222222, err, todos);
+		Todo.create(req.body.todo).exec(function(err, todo) {
 			if (err) throw err;
 			res.json(todo);
 		});
 	},
 
 	updateTodo: function(req, res) {
-		Todo.find(req.params.id)update(req.body).exec(function(err, todo) {
-			console.log(2222222, err, todo);
+		var todo = req.body.todo;
+		Todo.update({id: todo.id}, todo).exec(function(err, response) {
 			if (err) throw err;
-			res.json(todo);
+			res.json(response);
 		})
 	},
 
 	removeTodo: function(req, res) {
-
+		Todo.destroy({id: req.body.todo.id}).exec(function(err, response) {
+			if (err) throw err;
+			res.json(response)
+		})
 	}
 };
