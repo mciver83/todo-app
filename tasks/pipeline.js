@@ -32,7 +32,7 @@ var jsFilesToInject = [
 
   // Dependencies like jQuery, or Angular are brought in here
   '/node_modules/angular/angular.js',
-  '/node_modules/angular-ui-router/release/angular-ui-router.js',
+  '/node_modules/angular-route/angular-route.js',
   'js/dependencies/**/*.js',
 
   // All of the rest of your client-side js files

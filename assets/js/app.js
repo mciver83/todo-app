@@ -1,12 +1,11 @@
 angular
-  .module('todoApp', ['ui.router'])
-  .config(function($stateProvider, $urlRouterProvider) {
-    $stateProvider
-      .state('todos', {
-          url: '/',
+  .module('todoApp', ['ngRoute'])
+  .config(function($routeProvider) {
+    $routeProvider
+      .when('/', {
           templateUrl: '/templates/todo.html',
           controller: 'TodoCtrl'
       })
+      .otherwise('/')
 
-    $urlRouterProvider.otherwise('/')
   })
